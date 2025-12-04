@@ -1,0 +1,11 @@
+# Basic .htaccess for InfinityFree
+DirectoryIndex index.php index.html
+
+# Prevent directory listing
+Options -Indexes
+
+# Enable pretty URLs (optional)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?path=$1 [L,QSA]
